@@ -1,4 +1,4 @@
-// Rasmus — Basklass för alla medier i bibliotekssystemet.
+// Rasmus: Basklass för alla medier i bibliotekssystemet.
 package bokmag;
 
 public class MediaItem {
