@@ -13,4 +13,15 @@ public class Magazine extends MediaItem {
         this.category = category;
         this.publishedYear = publishedYear;
     }
+
+    @Override
+    public String toString() {
+        return "Titel: " + getTitle() +
+               ", Nummer: " + issueNumber +
+               ", Kategori: " + category +
+               ", År: " + publishedYear +
+               ", Tillgänglig: " + isAvailable();
+    }
 }
+
+

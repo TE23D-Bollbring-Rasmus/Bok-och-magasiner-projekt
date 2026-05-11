@@ -14,7 +14,7 @@ public class MediaItem {
 
     public String getId() { return id; }
     public String getTitle() { return title; }
-    public boolean getAvailable() { return isAvailable; }
+    public boolean isAvailable() { return isAvailable; }
 
     public void toggleAvailable() {
         isAvailable = !isAvailable;

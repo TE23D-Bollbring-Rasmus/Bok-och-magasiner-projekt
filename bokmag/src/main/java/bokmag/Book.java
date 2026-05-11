@@ -1,13 +1,15 @@
-// Rasmus: Klass som representerar en bok och ärver från MediaItem.
+// Rasmus — Klass som representerar en bok och ärver från MediaItem.
 package bokmag;
 
 public class Book extends MediaItem {
+
     private String author;
     private String genre;
     private int pages;
 
     public Book(String id, String title, boolean isAvailable,
                 String author, String genre, int pages) {
+
         super(id, title, isAvailable);
         this.author = author;
         this.genre = genre;
@@ -17,4 +19,14 @@ public class Book extends MediaItem {
     public String getAuthor() { return author; }
     public String getGenre() { return genre; }
     public int getPages() { return pages; }
+
+    @Override
+    public String toString() {
+        return "Titel: " + getTitle() +
+               ", Författare: " + author +
+               ", Genre: " + genre +
+               ", Sidor: " + pages +
+               ", Tillgänglig: " + isAvailable();
+    }
 }
+
