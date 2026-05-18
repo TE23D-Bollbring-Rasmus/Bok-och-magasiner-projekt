@@ -1,3 +1,4 @@
+//Rasmus: Main klass som skriver ut menyval
 package bokmag;
 
 import com.google.gson.Gson;
@@ -33,19 +34,33 @@ public class Main {
             int val = Integer.parseInt(sc.nextLine());
 
             switch (val) {
-                case 1 -> hamtaBocker();
-                case 2 -> hamtaTidningar();
-                case 3 -> skrivUtBocker();
-                case 4 -> skrivUtTidningar();
-                case 5 -> laggTillBok(sc);
-                case 6 -> laggTillTidning(sc);
-                case 7 -> running = false;
-                default -> System.out.println("Fel val!");
+                case 1:
+                    hamtaBocker();
+                    break;
+                case 2:
+                    hamtaTidningar();
+                    break;
+                case 3:
+                    skrivUtBocker();
+                    break;
+                case 4:
+                    skrivUtTidningar();
+                    break;
+                case 5:
+                    laggTillBok(sc);
+                    break;
+                case 6:
+                    laggTillTidning(sc);
+                    break;
+                case 7:
+                    running = false;
+                    break;
+                default:
+                    System.out.println("Fel val!");
             }
         }
     }
 
-    // HÄMTA BÖCKER
     private static void hamtaBocker() {
         var response = Unirest.get("http://10.151.168.5:3119/books").asString();
         Book[] arr = gson.fromJson(response.getBody(), Book[].class);
@@ -56,9 +71,6 @@ public class Main {
 
         System.out.println("Böcker hämtade: " + arr.length);
     }
-
-
-    // HÄMTA TIDNINGAR
 
     private static void hamtaTidningar() {
         var response = Unirest.get("http://10.151.168.5:3119/magazines").asString();
@@ -71,24 +83,31 @@ public class Main {
         System.out.println("Tidningar hämtade: " + arr.length);
     }
 
-
-    // SKRIV UT BÖCKER
     private static void skrivUtBocker() {
         System.out.println("\nBöcker");
         for (Book b : books) {
             System.out.println(b);
         }
+    System.out.println("\nEgna böcker:");
+    for (Book b : books) {
+        if (b.getId().startsWith("local-")) {
+            System.out.println(b);
+        }
+    }
     }
 
-    // SKRIV UT TIDNINGAR
     private static void skrivUtTidningar() {
         System.out.println("\nTidningar");
         for (Magazine m : magazines) {
             System.out.println(m);
         }
+    System.out.println("\nEgna tidningar:");
+    for (Magazine m : magazines) {
+        if (m.getId().startsWith("local-")) {
+            System.out.println(m);
+        }
     }
-
-    // LÄGG TILL BOK
+    }
 
     private static void laggTillBok(Scanner sc) {
         System.out.print("Titel: ");
@@ -117,7 +136,6 @@ public class Main {
         System.out.println("Bok tillagd!");
     }
 
-    // LÄGG TILL TIDNING
     private static void laggTillTidning(Scanner sc) {
         System.out.print("Titel: ");
         String title = sc.nextLine();
@@ -132,7 +150,7 @@ public class Main {
         int year = Integer.parseInt(sc.nextLine());
 
         Magazine m = new Magazine(
-                "local " + (magazines.size() + 1),
+                "local-" + (magazines.size() + 1),
                 title,
                 true,
                 issue,

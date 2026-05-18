@@ -1,4 +1,4 @@
-// Rasmus — Klass som representerar en tidning och ärver från MediaItem.
+// Rasmus: Klass som representerar en tidning och ärver från MediaItem.
 package bokmag;
 
 public class Magazine extends MediaItem {
@@ -19,8 +19,7 @@ public class Magazine extends MediaItem {
         return "Titel: " + getTitle() +
                ", Nummer: " + issueNumber +
                ", Kategori: " + category +
-               ", År: " + publishedYear +
-               ", Tillgänglig: " + isAvailable();
+               ", År: " + publishedYear;
     }
 }
 

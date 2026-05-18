@@ -1,4 +1,4 @@
-// Rasmus — Klass som representerar en bok och ärver från MediaItem.
+// Rasmus: Klass som representerar en bok och ärver från MediaItem.
 package bokmag;
 
 public class Book extends MediaItem {
@@ -25,8 +25,7 @@ public class Book extends MediaItem {
         return "Titel: " + getTitle() +
                ", Författare: " + author +
                ", Genre: " + genre +
-               ", Sidor: " + pages +
-               ", Tillgänglig: " + isAvailable();
+               ", Sidor: " + pages;
     }
 }
 
