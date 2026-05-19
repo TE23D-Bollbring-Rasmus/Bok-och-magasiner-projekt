@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    private static final Gson gson = new GsonBuilder().create();
     private static final List<Book> books = new ArrayList<>();
     private static final List<Magazine> magazines = new ArrayList<>();
 
